@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thư Tình</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffc0cb;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .heart {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .heart:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .letter {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      min-height: 400px;
+      background: #fff;
+      border: 2px solid #ddd;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      padding: 30px;
+      box-sizing: border-box;
+      z-index: 3;
+      animation: fadeIn 0.5s ease;
+      border-radius: 10px;
+    }
+
+    .letter p {
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: left;
+      margin-bottom: 60px;
+    }
+
+    .signature {
+      position: absolute;
+      bottom: 50px;
+      left: 30px;
+      font-style: italic;
+      color: #555;
+      font-size: 16px;
+    }
+
+    .close-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      background-color: #ff7f7f;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .close-btn:hover {
+      background-color: #e06767;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- SVG trái tim -->
+    <svg class="heart" id="heart" viewBox="0 0 32 29.6" onclick="showLetter()">
+      <path
+        d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.1C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4
+           c0,9.7,16,21.1,16,21.1s16-11.4,16-21.1C32,3.8,28.2,0,23.6,0z"
+        fill="red"
+      />
+    </svg>
+
+    <!-- Tờ giấy -->
+    <div class="letter" id="letter">
+      <p>
+        Gửi bạn nhỏ,<br><br>
+        Cảm ơn em đã dành thời gian cho những điều đôi khi trẻ con của anh, và anh có đôi điều muốn gửi đến “bạn nhỏ” của anh ❤️. Cảm ơn em đã bước vào đời anh khi anh nghĩ mình không thể yêu ai và không còn cần tình yêu nữa. Em khiến mọi thứ trở nên ý nghĩa và vui vẻ hơn.<br><br>
+        Em làm anh thấy mình đặc biệt và có cảm giác an toàn. Vậy nên bắt đầu từ đây, anh mong chúng ta có thể lúc nào cũng mãi vui vẻ như thế này, chúng ta có thể tiến xa hơn trong tương lai. 💕<br><br>
+        Dù có điều gì xảy ra, anh mong em biết rằng những cảm xúc này là thật. Cảm ơn em đã xuất hiện và làm cuộc sống anh có thêm nhiều tiếng cười!
+      </p>
+      <div class="signature">Ân, iu em ❤️</div>
+      <button class="close-btn" onclick="hideLetter()">Đóng thư</button>
+    </div>
+  </div>
+
+  <script>
+    function showLetter() {
+      document.getElementById("letter").style.display = "block";
+      document.getElementById("heart").style.display = "none";
+    }
+
+    function hideLetter() {
+      document.getElementById("letter").style.display = "none";
+      document.getElementById("heart").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
